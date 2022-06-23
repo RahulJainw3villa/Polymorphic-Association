@@ -1,0 +1,16 @@
+<h1>Update News</h1>
+<%= form_with model: @news, url:newss_path do |form| %>
+  <div>
+    <%= form.label :Title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+<div>
+    <%= form.label :Discription %><br>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

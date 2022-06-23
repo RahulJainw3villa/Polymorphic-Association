@@ -1,0 +1,29 @@
+<h3>Article </h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Discription</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+        <td><%= @article.id %></td>
+        <td><%= @article.title %></td>
+         <td><%= @article.description %></td> 
+         <td><%= link_to 'Update', edit_article_path(@article) %></td>
+        <td><%= link_to "Delete", article_path(@article), data:{method: :delete, confirm: "Are you Sure?"}%></td>   
+</table>
+
+
+
+<h1>Add comments</h1>
+
+
+<%= render partial: "comments/comments", locals: {commentable: @article} %>
+<%= render partial: "comments/form", locals: {commentable: @article} %>
+
+<%# <%= render 'comments/form', locals: {commentable: @article} %> 
+
+

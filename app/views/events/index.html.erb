@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">show</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+  <% @events.each do |i| %>
+    <tbody>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= i.title %></td>
+        <td><%= i.description %></td>
+        
+        <td><%= link_to 'show', i %></td>
+        <td><%= link_to 'Update', edit_event_path(i) %></td>
+        <td><%= link_to "Delete", event_path(i), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>    </tr>
+    </tbody>
+  <% end %>
+      
+</table>
