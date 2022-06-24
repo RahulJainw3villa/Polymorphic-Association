@@ -1,10 +1,13 @@
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
 
+<h1>ALL Articles</h1>
 <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
+        <th scope="col">Date and Time</th>
         <th scope="col">show</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -16,10 +19,24 @@
         <td><%= i.id %></td>
         <td><%= i.title %></td>
         <td><%= i.description %></td>
+        <td> <%format = i.created_at.in_time_zone('Asia/Dhaka')%>
+        <%= format.strftime("%d %b, %y at %I : %M %p")%></td>
         <td><%= link_to 'show', i %></td>
         <td><%= link_to 'Update', edit_article_path(i) %></td>
         <td><%= link_to "Delete", article_path(i), data:{method: :delete, confirm: "Are you Sure?"}%></td>   
       </tbody>
   <% end %>
-      
 </table>
+
+
+
+
+<script>
+const btn1 = document.querySelector('.btn1');
+
+ function myFunction(){
+       btn1.style.backgroundColor ="red";
+       btn1.innerHTML = "hellos"
+ }
+
+</script>

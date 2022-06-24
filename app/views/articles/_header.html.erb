@@ -1,11 +1,50 @@
-<hr>
-<%= link_to 'All Article', articles_path, class:"btn btn-primary" %>
-<%= link_to 'All news', newss_index_path, class:"btn btn-primary" %>
-<%= link_to 'All Event', events_path, class:"btn btn-primary" %>
-
-<%= link_to 'Create New Article', new_article_path, class:"btn btn-primary" %>
-<%= link_to 'Create New news', new_newss_path, class:"btn btn-primary" %>
-<%= link_to 'Create New Event', new_event_path, class:"btn btn-primary" %>
 
 
-<hr>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+<ul  id="navMenus" class="navbar-nav me-auto mb-2 mb-lg-0">
+      <a class="nav-item nav-link" href="#">
+      <%= link_to 'All Article', articles_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+      <a class="nav-item nav-link"  href="#">
+<%= link_to 'All Brodcast', brodcasts_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+      <a class="nav-item nav-link" href="#">
+<%= link_to 'All Event', events_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+      <a class="nav-item nav-link" href="#">
+<%= link_to 'Create New Article', new_article_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+      <a class="nav-item nav-link" href="#">
+<%= link_to 'Create New Brodcast', new_brodcast_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+      <a class="nav-item nav-link" href="#">
+<%= link_to 'Create New Event', new_event_path, class:"btn btn-outline-primary common" %>
+     
+</a>
+</ul>
+    </div>
+  </div>
+</nav>
+
+
+<%# add jquery and script for active navbar elements %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+var loc = window.location.pathname;
+console.log(loc);
+$('#navMenus').find('a').each(function() {
+$(this).toggleClass('active', $(this).attr('href') === loc);
+});
+</script>

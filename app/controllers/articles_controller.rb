@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [ :update, :destroy, :show, :edit]
+    
     def index
     @articles = Article.all
     end
@@ -8,11 +10,9 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])       
     end
 
     def edit
-        @article = Article.find(params[:id])   
     end
 
     def create
@@ -25,16 +25,14 @@ class ArticlesController < ApplicationController
     end 
 
     def update
-        @article = Article.find(params[:id])   
             if @article.update(article_params)
-                redirect_to root_path
+                redirect_to root_path, notice: 'Article was successfully updated'
             else
                 render :edit, status: :unprocessable_entity
             end
     end
 
     def destroy
-        @article = Article.find(params[:id])   
        
             if @article.destroy
                 redirect_to root_path
@@ -48,4 +46,7 @@ class ArticlesController < ApplicationController
             params.require(:article).permit(:title,:description)
         end
 
+        def set_article
+            @article = Article.find(params[:id])       
+        end
 end

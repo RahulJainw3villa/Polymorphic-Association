@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       resources :comments, module: :articles
      end
      
-     resources :newss
+     resources :brodcasts do
+      resources :comments,module: :brodcasts
+     end
 
      resources :events do
       resources :comments, module: :events

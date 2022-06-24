@@ -1,0 +1,21 @@
+<h3>News</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Discription</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+        <td><%= @brodcast.id %></td>
+        <td><%= @brodcast.title %></td>
+         <td><%= @brodcast.description %></td> 
+         <td><%= link_to 'Update', edit_brodcast_path(@brodcast) %></td>
+        <td><%= link_to "Delete", brodcast_path(@brodcast), data:{method: :delete, confirm: "Are you Sure?"}%></td>   
+</table>
+
+
+<%= render partial: "comments/comments", locals: {commentable: @brodcast} %>
+<%= render partial: "comments/form", locals: {commentable: @brodcast} %>

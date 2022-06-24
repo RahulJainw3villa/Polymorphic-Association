@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_22_071523) do
+ActiveRecord::Schema.define(version: 2022_06_24_050126) do
 
   create_table "articles", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "brodcasts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -34,9 +41,9 @@ ActiveRecord::Schema.define(version: 2022_06_22_071523) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "news", charset: "utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
+  create_table "logins", charset: "utf8mb4", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
